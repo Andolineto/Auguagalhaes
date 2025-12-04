@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oli Finance | Credit Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           1. CSS VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary-color: #0066CC; /* Tech/Finance Blue */
+            --secondary-color: #003366; /* Deep Navy */
+            --accent-color: #FFD700; /* Subtle Gold for Trust */
+            --bg-light: #F9FAFB;
+            --bg-white: #FFFFFF;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            
+            --font-main: 'Poppins', sans-serif;
+            
+            --container-width: 1200px;
+            --section-padding: 80px 0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* =========================================
+           2. UTILITIES
+           ========================================= */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center { text-align: center; }
+
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            display: block;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--bg-white);
+            color: var(--bg-white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-white);
+            color: var(--primary-color);
+        }
+
+        /* =========================================
+           3. HEADER
+           ========================================= */
+        header {
+            background-color: var(--bg-white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #003366 0%, #0066CC 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--bg-white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            color: var(--bg-white);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: #E0E7FF;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* =========================================
+           5. ABOUT US
+           ========================================= */
+        .about {
+            padding: var(--section-padding);
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* =========================================
+           6. SERVICES
+           ========================================= */
+        .services {
+            padding: var(--section-padding);
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* =========================================
+           7. ADVANTAGES
+           ========================================= */
+        .advantages {
+            padding: var(--section-padding);
+            background-color: var(--secondary-color);
+            color: var(--bg-white);
+        }
+
+        .advantages .section-subtitle {
+            color: #60A5FA;
+        }
+
+        .advantages h2 {
+            color: var(--bg-white);
+        }
+
+        .advantages p {
+            color: #D1D5DB;
+        }
+
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .adv-item {
+            text-align: left;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .adv-item h4 {
+            color: var(--bg-white);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* =========================================
+           8. PROCESS
+           ========================================= */
+        .process {
+            padding: var(--section-padding);
+            background-color: var(--bg-white);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 20px auto;
+            border: 2px solid var(--primary-color);
+        }
+
+        /* =========================================
+           9. CONTACT
+           ========================================= */
+        .contact {
+            padding: var(--section-padding);
+            background-color: var(--bg-light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            background: var(--bg-white);
+            padding: 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-info {
+            padding-right: 40px;
+            border-right: 1px solid #E5E7EB;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+        }
+
+        .info-item h5 {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .info-item p {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            background: #F9FAFB;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-color);
+            background: #fff;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* =========================================
+           10. FOOTER
+           ========================================= */
+        footer {
+            background-color: var(--secondary-color);
+            color: #9CA3AF;
+            padding: 60px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-grid, .contact-container { grid-template-columns: 1fr; }
+            .adv-grid, .process-steps { flex-direction: column; }
+            .contact-info { border-right: none; border-bottom: 1px solid #E5E7EB; padding-right: 0; padding-bottom: 40px; margin-bottom: 40px; }
+            .nav-wrapper { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">OLI <span>FINANCE</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#advantages">Why Us</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Connecting You to Financial Opportunities</h1>
+            <p>Oli Finance simplifies credit intermediation in Goiania. We provide transparent, secure, and personalized financial solutions to help you achieve your goals.</p>
+            <a href="#contact" class="btn btn-outline">Start Your Journey</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <span class="section-subtitle">Who We Are</span>
+                <h2 class="section-title">Your Trusted Financial Partner</h2>
+                <p>OLI FINANCE LTDA is a dedicated credit intermediation firm based in Goiania, Goias. Led by Andre Valentim De Oliveira Gerolineto, we strive to make financial products accessible and understandable.</p>
+                <p>We operate as a bridge between individuals, businesses, and major financial institutions. Our expertise in "Activities Related to Credit Intermediation" allows us to negotiate better terms, lower rates, and faster approvals for our clients.</p>
+                <p>Whether you need a personal loan, business financing, or insurance advice, Oli Finance is committed to integrity, transparency, and your financial success.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Planning">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What We Offer</span>
+                <h2 class="section-title">Financial Services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#128179;</div> <h3>Credit Intermediation</h3>
+                    <p>We analyze your financial profile and connect you with the best loan options available. From personal credit to business lines, we find the right fit for your needs.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#128737;</div> <h3>Insurance Solutions</h3>
+                    <p>Protecting your assets is crucial. We offer insurance brokerage services to safeguard your property, health, and business against unforeseen risks.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#127974;</div> <h3>Banking Functions</h3>
+                    <p>We assist with deposit banking functions and other financial related activities, ensuring your transactions are processed smoothly and securely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Why Choose Oli</span>
+                <h2 class="section-title">The Oli Advantage</h2>
+            </div>
+
+            <div class="adv-grid">
+                <div class="adv-item">
+                    <h4>Personalized Service</h4>
+                    <p>We treat every client as a partner. We take the time to understand your unique situation and tailor our financial advice accordingly.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Goias Expertise</h4>
+                    <p>Based in Goiania, we have a deep understanding of the local market and banking landscape, giving you a competitive edge in securing funds.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Transparent Process</h4>
+                    <p>No hidden fees or confusing jargon. We believe in clear communication, ensuring you understand every aspect of your financial agreement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">How We Work</span>
+                <h2 class="section-title">Simple Steps to Funding</h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your financial needs and goals in a free initial consultation.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>Analysis</h3>
+                    <p>Our team reviews your credit profile and matches you with suitable lenders.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>Approval</h3>
+                    <p>We handle the paperwork and negotiation to get your funding approved quickly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Let's Discuss Your Finances</h2>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h5>Headquarters</h5>
+                        <p>GOIANIA, GOIAS<br>Brazil</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h5>Electronic Mail</h5>
+                        <p>info@olifinance.info</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h5>Key Principal</h5>
+                        <p>Andre Valentim De Oliveira Gerolineto</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <select>
+                            <option value="" disabled selected>Service Needed</option>
+                            <option value="Credit">Credit/Loan</option>
+                            <option value="Insurance">Insurance</option>
+                            <option value="Other">Other Inquiry</option>
+                        </select>
+                        <textarea placeholder="How can we help you?"></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 OLI FINANCE LTDA. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: rgba(255,255,255,0.6);">Activities Related to Credit Intermediation | Finance and Insurance</p>
+        </div>
+    </footer>
+
+</body>
+</html>
